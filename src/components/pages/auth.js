@@ -3,14 +3,6 @@ import Login from '../auth/login';
 import loginImg from '../../../static/assets/images/auth/login.jpg';
 
 export default class Auth extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	handleSuccessfulAuth() {}
-
-	handleUnsuccessfulAuth() {}
-
 	render() {
 		return (
 			<div className="auth-page-wrapper">
@@ -21,7 +13,9 @@ export default class Auth extends Component {
 					}}
 				/>
 
-				<div className="right-column" />
+				<div className="right-column">
+					<Login />
+				</div>
 			</div>
 		);
 	}
