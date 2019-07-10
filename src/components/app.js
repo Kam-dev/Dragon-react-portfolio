@@ -45,26 +45,27 @@ export default class App extends Component {
 
 	checkLoginStatus() {
 		return axios
-			.get('https://api.devcamp.spave/logged_in', {
+			.get('https://api.devcamp.space/logged_in', {
 				withCredentials: true
 			})
 			.then(response => {
-				const loggedIN = response.data.logged_in;
+				const loggedIn = response.data.logged_in;
 				const loggedInStatus = this.state.loggedInStatus;
-				if (loggedIN && loggedInStatus === 'LOGGED_IN') {
-					return loggedIN;
-				} else if (loggedIN && loggedInStatus === 'NOT_LOGGED_IN') {
+
+				if (loggedIn && loggedInStatus === 'LOGGED_IN') {
+					return loggedIn;
+				} else if (loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
 					this.setState({
 						loggedInStatus: 'LOGGED_IN'
 					});
-				} else if (!loggedIN && loggedInStatus === 'LOGGED_IN') {
+				} else if (!loggedIn && loggedInStatus === 'LOGGED_IN') {
 					this.setState({
 						loggedInStatus: 'NOT_LOGGED_IN'
 					});
 				}
 			})
 			.catch(error => {
-				console, log('Error', error);
+				console.log('Error', error);
 			});
 	}
 
@@ -74,7 +75,7 @@ export default class App extends Component {
 
 	authorizedPages() {
 		return [
-			<Route path="/portfolio-manager" component={PortfolioManager} />
+			<Route key="portfolio-manager" path="/portfolio-manager" component={PortfolioManager} />
 		];
 	}
 
