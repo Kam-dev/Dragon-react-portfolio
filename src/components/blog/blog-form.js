@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import DropzoneComponent from "react-dropzone-component";
 
-import filepickerCss from "../../../node_modules/react-dropzone-component/styles/filepicker.css";
-import dropzoneCss from "../../../node_modules/dropzone/dist/min/dropzone.min.css";
-
 import RichTextEditor from "../forms/rich-text-editor";
 
 export default class BlogForm extends Component {
@@ -31,7 +28,6 @@ export default class BlogForm extends Component {
 		this.djsConfig = this.djsConfig.bind(this);
 		this.handleFeaturedImageDrop = this.handleFeaturedImageDrop.bind(this);
 		this.deleteImage = this.deleteImage.bind(this);
-
 		this.featuredImageRef = React.createRef();
 	}
 
@@ -128,7 +124,7 @@ export default class BlogForm extends Component {
 				});
 
 				if (this.props.editMode) {
-					// Update blog detail
+					//Update blog detail
 					this.props.handleUpdateFormSubmission(response.data.portfolio_blog);
 				} else {
 					this.props.handleSuccessfullFormSubmission(
@@ -173,7 +169,7 @@ export default class BlogForm extends Component {
 				<div className="one-column">
 					<RichTextEditor
 						handleRichTextEditorChange={this.handleRichTextEditorChange}
-						editMode={this.props.editMode || null}
+						editMode={this.props.editMode}
 						contentToEdit={
 							this.props.editMode && this.props.blog.content
 								? this.props.blog.content
